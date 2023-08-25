@@ -1,0 +1,48 @@
+.parent-container {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    min-height: 100vh;
+    
+     /* Ensure the container covers the full viewport height */
+  }
+
+  .department-card {
+    text-align: center;
+    padding: 10px;
+  }
+
+  
+  .department-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .department {
+    width: 250px; 
+    height: 250px; 
+    border-radius: 70%;
+    display: block;
+    margin: 0 auto;
+        
+  }
+
+  .doctor-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .doctor-card {
+    border: 3px solid #ccc;
+    padding: 25px;
+    width: 500px;
+    box-shadow: 0px 0px 5px rgba(9, 104, 121, 0.1);
+  }
+  
+  /* Adjust the number of columns based on your preferred layout */
+  @media (min-width: 768px) {
+    .col-md-4 {
+      flex-basis: 33.33%;
+    }
+  }

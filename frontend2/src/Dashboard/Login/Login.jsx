@@ -37,6 +37,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const Handlechange = (e) => {
+   
     setFormvalue({ ...formvalue, [e.target.name]: e.target.value });
   };
   const navigate = useNavigate();
@@ -51,10 +52,16 @@ const Login = () => {
         };
         dispatch(UserLogin(data)).then((res) => {
           if (res.message === "Successful") {
+            //debugger; 
             notify("Login Successful");
             setLoading(false);
-            
-            window.localStorage.setItem('email',data.email);   //to store locally
+            window.localStorage.setItem('role',res.role);
+            window.localStorage.setItem('userId',res.userId);
+                window.localStorage.setItem('fname', res.firstName);
+                   //to store locally
+            if(res.role === "USER"){
+              return navigate("/department");
+            }
             return navigate("/dashboard");
           }
           if (res.message === "Wrong credentials") {
