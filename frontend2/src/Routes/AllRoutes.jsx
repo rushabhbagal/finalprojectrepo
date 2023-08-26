@@ -14,6 +14,7 @@ import Add_Doctor from "../components/Add_Doctor";
 import DepartmentList from "../components/DepartmentList";
 import Departments from "../components/Departments";
 import Doctors from "../components/Doctors";
+import BookAppointment from "../components/BookAppointment";
 
 
 const AllRoutes = () => {
@@ -29,6 +30,7 @@ const AllRoutes = () => {
             <Route path="/departments" element={<DepartmentList/>} />
             <Route path="/department" element={<Departments/>} />
             <Route path="/doctors/:deptId" element={<Doctors />} />
+            <Route path="/bookappointment" element={<BookAppointment />} />
       </Routes>
       <Footer />
     </div>

@@ -44,7 +44,7 @@ const Doctors = () => {
         <p>Fees: {doctor.fees}</p>
         <p>About: {doctor.about}</p>
         <Link
-          to={`/book-appointment?doctor_id=${doctor.doctor_id}?user_id=${window.localStorage.getItem('userId')}`} // Adjust the URL
+          to={`/bookappointment?doctor_id=${doctor.doctor_id}&user_id=${window.localStorage.getItem('userId')}`} // Adjust the URL
           className="book-appointment-button"
         >
           Book Appointment

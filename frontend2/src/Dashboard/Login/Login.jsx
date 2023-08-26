@@ -55,9 +55,10 @@ const Login = () => {
             //debugger; 
             notify("Login Successful");
             setLoading(false);
-            window.localStorage.setItem('role',res.role);
-            window.localStorage.setItem('userId',res.userId);
-                window.localStorage.setItem('fname', res.firstName);
+            
+            window.sessionStorage.setItem('role',res.role);
+            window.sessionStorage.setItem('userId',res.userId);
+            window.sessionStorage.setItem('fname', res.firstName);
                    //to store locally
             if(res.role === "USER"){
               return navigate("/department");
