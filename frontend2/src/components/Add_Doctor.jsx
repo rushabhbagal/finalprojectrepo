@@ -54,20 +54,7 @@ const Add_Doctor = () => {
 
       return navigate("/");
 
-    //   if (UserValue.role === "DOCTOR") {
-    //     notify("Add more information related to doctor");
-    //     setLoading(false);
-    //     return navigate("/docsignup");
-    //   }
-
-      // let data = {
-      //   email: res.data.email,
-      //   password: res.data.password,
-      //   userId: res.data.userID,
-      // };
-      // dispatch(SendPassword(data)).then((res) => notify("Account Detais Sent"));
-      // setLoading(false);
-      // setUserValue(InitData);
+    
     });
   };
 
@@ -75,9 +62,7 @@ const Add_Doctor = () => {
     return <Navigate to={"/"} />;
   }
 
-  // if (data?.user.userType !== "admin") {
-  //   return <Navigate to={"/dashboard"} />;
-  // }
+  
 
   return (
     <>

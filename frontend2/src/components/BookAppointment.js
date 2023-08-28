@@ -3,10 +3,15 @@ import axios from 'axios';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import { searchParams } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const notify = (text) => toast(text);
 
 
 const BookAppointment = () => {
+  const navigate = useNavigate();
     const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
     const userId = searchParams.get('user_id');
@@ -32,10 +37,13 @@ const BookAppointment = () => {
         appDate: appDate,
         slotId: slotId,
       });
+      notify(response.data.message);
       console.log('Appointment booked:', response.data);
     } catch (error) {
       console.error('Error booking appointment:', error.response);
     }   
+  
+      navigate(`/appointmemts/p/${sessionStorage.getItem('user_id')}`);
   };
 
   return (
@@ -43,32 +51,13 @@ const BookAppointment = () => {
       <h1>Book Appointment</h1>
       <form onSubmit={handleSubmit}>
 
-        {/* <label>
-          Doctor ID:
-          <input
-            type="text"
-            value={doctorId}
-            onChange={(e) => setDoctorId(e.target.value)}
-          />
-        </label>
-        <br />
-        <label>
-          User ID:
-          <input
-            type="text"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
-          />
-        </label> */}
+        
         <br />
             <div>
             <label for="selectedSlot"> Date:&nbsp;&nbsp;&nbsp;</label>
               <input type="date" onChange={handleDateChange} value={appDate} name="selectedDate"></input>
             </div>
-            {/* <label>
-          Select Date:
-          <DatePicker selected={selectedDate} onChange={handleDateChange} />
-        </label> */}
+            
         
         <br />
         <div>
@@ -87,26 +76,14 @@ const BookAppointment = () => {
                     <option value="4">10:30 - 11:00 AM</option>
                     <option value="5">11:00 - 11:30 AM</option>
                     <option value="6">11:30 - 12:00 AM</option>
-                    <option value="5">12:00 - 12:30 AM</option>
-                    <option value="6">12:30 - 1:00 AM</option>
+                    <option value="7">12:00 - 12:30 AM</option>
+                    <option value="8">12:30 - 1:00 AM</option>
                     
                   </select>
                 </div>
               </div>
         <div className="slot-container">
-          {/* <div
-            className={`slot ${selectedSlot === 'Morning' ? 'selected' : ''}`}
-            onClick={() => handleSlotSelect('Morning')}
-          >
-            Morning
-          </div>
-          <div
-            className={`slot ${selectedSlot === 'Afternoon' ? 'selected' : ''}`}
-            onClick={() => handleSlotSelect('Afternoon')}
-          >
-            Afternoon
-          </div>
-          Add more slot options as needed */}
+          
         </div>
         <br />
         <button  type="submit">Book Appointment</button>

@@ -43,9 +43,9 @@ const Doctors = () => {
         <p>Department: {doctor.deptName}</p>
         <p>Fees: {doctor.fees}</p>
         <p>About: {doctor.about}</p>
-        <Link
+        <Link className="btn btn-outline-primary"
           to={`/bookappointment?doctor_id=${doctor.doctor_id}&user_id=${window.localStorage.getItem('userId')}`} // Adjust the URL
-          className="book-appointment-button"
+          
         >
           Book Appointment
         </Link>

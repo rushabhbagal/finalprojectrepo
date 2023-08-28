@@ -4,6 +4,7 @@ import banner from "../../img/banner.png";
 import admin from "../../img/admin.jpg";
 import "./Login.css";
 
+
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
@@ -57,13 +58,15 @@ const Login = () => {
             setLoading(false);
             
             window.sessionStorage.setItem('role',res.role);
-            window.sessionStorage.setItem('userId',res.userId);
+            window.sessionStorage.setItem('user_id',res.userId);
             window.sessionStorage.setItem('fname', res.firstName);
                    //to store locally
             if(res.role === "USER"){
               return navigate("/department");
             }
-            return navigate("/dashboard");
+           
+            const user_id = sessionStorage.getItem('user_id');
+            return navigate(`/appointmemts/${res.userId}`);
           }
           if (res.message === "Wrong credentials") {
             setLoading(false);
